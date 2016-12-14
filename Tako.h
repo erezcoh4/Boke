@@ -41,8 +41,8 @@ public:
   
   TFile* fout;
   TTree* tree;
-  std::vector<TLorentzVector> vec1;
-  std::vector<TVector3> vec2;
+  std::vector<TLorentzVector> *vec1;
+  std::vector<TVector3> *vec2;
 
 };
 

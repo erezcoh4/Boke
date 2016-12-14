@@ -5,8 +5,8 @@
 
 Tako::Tako() : fout(nullptr), tree(nullptr)
 {
-//  vec1 = new std::vector<TLorentzVector>;
-//  vec2 = new std::vector<TVector3>;
+  vec1 = new std::vector<TLorentzVector>;
+  vec2 = new std::vector<TVector3>;
 }
 
 void Tako::Open()
@@ -20,8 +20,8 @@ void Tako::Open()
   tree = new TTree("tree","");
   tree->Branch("vec1",&vec1);
   tree->Branch("vec2",&vec2);
-  vec1.clear();
-  vec2.clear();
+  vec1->clear();
+  vec2->clear();
 }
 
 void Tako::Fill()
@@ -31,11 +31,11 @@ void Tako::Fill()
 	      << " before file is opened!" << std::endl;
     throw std::exception();
   }
-  TLorentzVector in1(vec1.size(), vec1.size(), vec1.size(), vec1.size());
-  vec1.push_back(in1);
+  TLorentzVector in1(vec1->size(), vec1->size(), vec1->size(), vec1->size());
+  vec1->push_back(in1);
 
-  TVector3 in2(vec2.size(), vec2.size(), vec2.size());
-  vec2.push_back(in2);
+  TVector3 in2(vec2->size(), vec2->size(), vec2->size());
+  vec2->push_back(in2);
   
   tree->Fill();
 }
